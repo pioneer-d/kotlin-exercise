@@ -25,4 +25,12 @@ fun main(){
     poro.invoke(1,2)
     poro(1,2)
     pxrx.invoke()
+
+    reverseString("Hello") { s -> s.reversed() }
+    reverseString("Hello") { it.reversed() }
+}
+
+fun reverseString(str: String, lamda: (String) -> (String)){
+    val result = lamda(str)
+    println(result)
 }

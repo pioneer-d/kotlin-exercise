@@ -20,6 +20,8 @@ fun main(){
     val numbers = listOf(1,2,3,4,5)
     println(numbers.filter {numbers -> numbers > 3})
     println(numbers.filter { it > 3 })
+
+    println(hof4()())
 }
 
 // 람다를 매개변수로 받는다?
@@ -28,14 +30,18 @@ fun hof(addition: (Int, Int) -> Int){
     println(result)
 }
 
-
-
 fun hof2(name: String, addition: (Int, Int) -> Int){
     val result = addition(4,5)
     println("Hello $name"+ result)
 }
 
-//
 fun hof3(name: (String) -> Unit){
     name("test")
+}
+
+fun hof4(): () -> String{
+    val msg = fun(): String{
+        return "Hi hof4"
+    }
+    return msg
 }
